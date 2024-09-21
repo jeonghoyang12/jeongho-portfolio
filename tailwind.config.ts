@@ -8,6 +8,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        ubuntu: ['var(--font-geist-mono)'],
+      },
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
