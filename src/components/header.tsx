@@ -25,7 +25,7 @@ export default function Header() {
 
   const formatTime = (date: Date) => {
     const options: Intl.DateTimeFormatOptions = {
-      month: "short",
+      month: "numeric",
       day: "numeric",
       hour: "2-digit",
       minute: "2-digit",
@@ -40,13 +40,14 @@ export default function Header() {
   return (
     <header className="bg-black text-white p-2 flex justify-between items-center font-ubuntu">
       <div className="flex-1">
-        <span className="font-bold text-lg">Jeongho Yang</span>
+        <span className="font-medium text-lg">JEONGHO YANG</span>
       </div>
       <div className="flex-1 text-center">
+        <span className="mr-3">EST</span>
         <span>{mounted ? formatTime(currentTime) : ""}</span>
       </div>
       <div className="flex-1 flex justify-end items-center space-x-4">
-        <button className="hover:bg-purple-800 p-1 rounded">
+        <button className="hover:bg-neutral-800 p-1 rounded">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="h-6 w-6"
@@ -62,7 +63,7 @@ export default function Header() {
             />
           </svg>
         </button>
-        <button className="hover:bg-purple-800 p-1 rounded">
+        <button className="hover:bg-neutral-800 p-1 rounded">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="h-6 w-6"
