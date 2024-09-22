@@ -39,14 +39,14 @@ export default function Header() {
   }
 
   return (
-    <header className="bg-black text-white p-2">
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 flex justify-between items-center font-ubuntu">
+    <header className="bg-[#1d1d1d] text-white p-2">
+      <div className="max-w-[600px] mx-auto py-3 flex justify-between items-center font-ubuntu">
         <div>
-          <span className="font-medium text-lg">JEONGHO YANG</span>
+          <span className="font-medium">jeongho yang</span>
         </div>
         <div className="flex items-center space-x-4">
-          <span>EST</span>
-          <span>{mounted ? formatTime(currentTime) : ""}</span>
+          <span className="text-[#a9a9a9]">EST</span>
+          <span className="text-[#a9a9a9]">{mounted ? formatTime(currentTime) : ""}</span>
         </div>
       </div>
     </header>
