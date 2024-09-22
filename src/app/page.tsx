@@ -30,6 +30,13 @@ const projects: Project[] = [
       "WIP",
     href: "/projects/harumada",
   },
+  {
+    name: "Blog",
+    year: 2024,
+    description:
+      "A blog powered by Notion API.",
+    href: "/projects/blog",
+  }
 ]
 
 const contacts: Contact[] = [
