@@ -69,8 +69,11 @@ export default function Home() {
             <span className="text-[#a9a9a9]">$ ls projects/</span>
           </span>
           <div className="flex flex-col w-full">
-            {projects.map((project) => (
-              <div key={project.name} className="flex flex-col w-full mb-5">
+            {projects.map((project, index) => (
+              <div 
+                key={project.name} 
+                className={`flex flex-col w-full ${index !== projects.length - 1 ? 'mb-5' : ''}`}
+              >
                 <div className="flex justify-between w-full">
                   <Link href={project.href} className="hover:underline group">
                     <span className="inline-flex items-center uppercase">
