@@ -16,7 +16,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${GeistMono.variable}`}>
-      <body className="bg-black">
+      <body className="bg-[#1d1d1d] text-[14px]">
         <Header />
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
           {children}
