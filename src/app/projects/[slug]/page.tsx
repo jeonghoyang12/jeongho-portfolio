@@ -29,7 +29,19 @@ export default function ProjectDetail() {
   const project = projects[slug]
 
   if (!project) {
-    return <div className="bg-[#1d1d1d] text-gray-800 min-h-screen p-8">Project not found</div>
+    return (
+      <div className="bg-[#1d1d1d] text-white font-mono min-h-screen p-8">
+        <div className="max-w-[600px] mx-auto">
+          <div className="bg-red-100 border-l-4 border-red-500 text-red-700 p-4 mb-4">
+            <p className="font-bold">Project Not Found</p>
+            <p>The project you&apos;re looking for doesn&apos;t exist or may have been moved.</p>
+          </div>
+          <Link href="/" className="text-blue-600 hover:underline">
+            Back to Home
+          </Link>
+        </div>
+      </div>
+    )
   }
 
   return (
