@@ -25,12 +25,13 @@ const projects: Record<string, Project> = {
   },
   blog: {
     title: "Blog",
-    description: "A blog powered by Notion API. Utilized Notion API and integrated with Next.js.",
-    year: 2024,
-    technologies: ["Next.js", "Notion API"],
-    githubLink: "https://github.com/jeonghoyang12/my-blog",
-    status: "completed",
-    snapshots: ["/images/blog-snapshot.png"],
+    status: "in-progress",
+    // description: "A blog powered by Notion API. Utilized Notion API and integrated with Next.js.",
+    // year: 2024,
+    // technologies: ["Next.js", "Notion API"],
+    // githubLink: "https://github.com/jeonghoyang12/my-blog",
+    // status: "completed",
+    // snapshots: ["/images/blog-snapshot.png"],
   }
 }
 
