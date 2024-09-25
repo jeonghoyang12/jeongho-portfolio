@@ -6,32 +6,33 @@ import Image from "next/image"
 
 interface Project {
   title: string;
-  year?: number;
   description?: string;
   technologies?: string[];
   githubLink?: string;
   status: "completed" | "in-progress";
-  snapshots?: string[];  // Add this new property
+  snapshots?: string[];
+  role?: string;  // Add this new property
+  timeline?: string;  // Add this new property
 }
 
 const projects: Record<string, Project> = {
-  goznuk: {
-    title: "Goznuk",
-    status: "in-progress",
-  },
-  harumada: {
-    title: "Harumada",
-    status: "in-progress",
-  },
+  // goznuk: {
+  //   title: "Goznuk",
+  //   status: "in-progress",
+  // },
+  // harumada: {
+  //   title: "Harumada",
+  //   status: "in-progress",
+  // },
   blog: {
     title: "Blog",
-    status: "in-progress",
-    // description: "A blog powered by Notion API. Utilized Notion API and integrated with Next.js.",
-    // year: 2024,
-    // technologies: ["Next.js", "Notion API"],
-    // githubLink: "https://github.com/jeonghoyang12/my-blog",
-    // status: "completed",
-    // snapshots: ["/images/blog-snapshot.png"],
+    description: "A blog powered by Notion API. Utilized Notion API and integrated with Next.js.",
+    technologies: ["Next.js", "Notion API"],
+    githubLink: "https://github.com/jeonghoyang12/my-blog",
+    status: "completed",
+    snapshots: ["/images/blog-snapshot.png"],
+    role: "Full Stack Developer",  // Add this
+    timeline: "Jan 2024 - Mar 2024",  // Add this
   }
 }
 
@@ -58,32 +59,49 @@ export default function ProjectDetail() {
 
   return (
     <div className="bg-[#1d1d1d] text-white min-h-screen p-8">
-      <div className="max-w-[600px] mx-auto">
-        <h1 className="font-bold mb-4">{project.title}</h1>
+      <div className="max-w-[800px] mx-auto"> {/* Increased max-width for a blog-like feel */}
+        <h1 className="text-3xl font-bold mb-6">{project.title}</h1> {/* Increased font size and margin */}
         
         {project.status === "completed" ? (
           <>
-            <p className="mb-4">{project.description ?? 'No description available'}</p>
+            <div className="mb-8 space-y-4">
+              {project.role && (
+                <p className="text-lg">
+                  <span className="font-semibold">Role:</span> {project.role}
+                </p>
+              )}
+              {project.timeline && (
+                <p className="text-lg">
+                  <span className="font-semibold">Timeline:</span> {project.timeline}
+                </p>
+              )}
+            </div>
             
-            {project.year && <p className="mb-4"><strong>Year:</strong> {project.year}</p>}
+            {project.description && (
+              <div className="mb-8 text-lg leading-relaxed"> {/* Increased text size and line height */}
+                <p>{project.description}</p>
+              </div>
+            )}
             
             {project.technologies && project.technologies.length > 0 && (
-              <div className="mb-4">
-                <h2 className="font-semibold mb-2">Technologies</h2>
-                <ul className="list-disc list-inside">
+              <div className="mb-8">
+                <h2 className="text-xl font-semibold mb-3">Technologies Used</h2>
+                <div className="flex flex-wrap gap-2">
                   {project.technologies.map((tech, index) => (
-                    <li key={index}>{tech}</li>
+                    <span key={index} className="bg-gray-800 px-3 py-1 rounded-full text-sm">
+                      {tech}
+                    </span>
                   ))}
-                </ul>
+                </div>
               </div>
             )}
             
             {project.snapshots && project.snapshots.length > 0 && (
-              <div className="mb-4">
-                <h2 className="font-semibold mb-2">Project Snapshots</h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="mb-8">
+                <h2 className="text-xl font-semibold mb-4">Project Snapshots</h2>
+                <div className="grid grid-cols-1 gap-6"> {/* Changed to single column for blog-like layout */}
                   {project.snapshots.map((snapshot, index) => (
-                    <div key={index} className="relative h-48">
+                    <div key={index} className="relative h-[400px]"> {/* Increased height for larger images */}
                       <Image
                         src={snapshot}
                         alt={`${project.title} snapshot ${index + 1}`}
@@ -98,9 +116,12 @@ export default function ProjectDetail() {
             )}
 
             {project.githubLink && (
-              <div className="mb-4">
-                <h2 className="font-semibold mb-2">GitHub</h2>
-                <Link href={project.githubLink} className="text-blue-600 hover:underline">
+              <div className="mb-8">
+                <h2 className="text-xl font-semibold mb-3">GitHub Repository</h2>
+                <Link 
+                  href={project.githubLink} 
+                  className="inline-block bg-gray-800 text-white px-4 py-2 rounded hover:bg-gray-700 transition-colors"
+                >
                   View on GitHub
                 </Link>
               </div>
@@ -113,8 +134,8 @@ export default function ProjectDetail() {
           </div>
         )}
         
-        <Link href="/" className="text-blue-600 hover:underline">
-          Back to Home
+        <Link href="/" className="inline-block mt-8 text-blue-400 hover:underline">
+          ← Back to Home
         </Link>
       </div>
     </div>
