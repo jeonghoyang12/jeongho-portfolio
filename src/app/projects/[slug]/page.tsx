@@ -33,8 +33,8 @@ const projects: Record<string, Project> = {
     githubLink: "https://github.com/jeonghoyang12/my-blog",
     status: "completed",
     snapshots: ["/images/blog-snapshot.png", "/images/notion-snapshot.png"],
-    role: "Full Stack Developer",
-    timeline: "Jan 2024 - Mar 2024",
+    role: "Software Engineer / Side Project",
+    timeline: "May 2024 - Jun 2024",
     demoLink: "https://my-blog-ten-olive.vercel.app/blog",
   },
 }
@@ -93,7 +93,7 @@ export default function ProjectDetail() {
 
             {project.technologies && project.technologies.length > 0 && (
               <div className="mb-8">
-                <h2 className="font-semibold mb-3">Technologies Used</h2>
+                <h2 className="font-semibold mb-3">Used Skills</h2>
                 <div className="flex flex-wrap gap-2">
                   {project.technologies.map((tech, index) => (
                     <span
