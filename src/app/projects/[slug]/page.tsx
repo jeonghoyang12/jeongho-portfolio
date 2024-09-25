@@ -13,6 +13,7 @@ interface Project {
   snapshots?: string[]
   role?: string
   timeline?: string
+  demoLink?: string
 }
 
 const projects: Record<string, Project> = {
@@ -31,9 +32,10 @@ const projects: Record<string, Project> = {
     technologies: ["Next.js", "Notion API"],
     githubLink: "https://github.com/jeonghoyang12/my-blog",
     status: "completed",
-    snapshots: ["/images/blog-snapshot.png"],
+    snapshots: ["/images/blog-snapshot.png", "/images/notion-snapshot.png"],
     role: "Full Stack Developer",
     timeline: "Jan 2024 - Mar 2024",
+    demoLink: "https://my-blog-ten-olive.vercel.app/blog",
   },
 }
 
@@ -62,20 +64,20 @@ export default function ProjectDetail() {
   }
 
   return (
-    <div className="bg-[#1d1d1d] text-white min-h-screen p-8">
+    <div className="bg-[#1d1d1d] text-white min-h-screen p-8 text-[14px]">
       <div className="max-w-[600px] mx-auto">
-        <h1 className="text-3xl font-bold mb-6">{project.title}</h1>
+        <h1 className="font-bold mb-6">{project.title}</h1>
 
         {project.status === "completed" ? (
           <>
             <div className="mb-8 space-y-4">
               {project.role && (
-                <p className="text-lg">
+                <p>
                   <span className="font-semibold">Role:</span> {project.role}
                 </p>
               )}
               {project.timeline && (
-                <p className="text-lg">
+                <p>
                   <span className="font-semibold">Timeline:</span>{" "}
                   {project.timeline}
                 </p>
@@ -83,7 +85,7 @@ export default function ProjectDetail() {
             </div>
 
             {project.description && (
-              <div className="mb-8 text-lg leading-relaxed">
+              <div className="mb-8 leading-relaxed">
                 {" "}
                 <p>{project.description}</p>
               </div>
@@ -91,14 +93,12 @@ export default function ProjectDetail() {
 
             {project.technologies && project.technologies.length > 0 && (
               <div className="mb-8">
-                <h2 className="text-xl font-semibold mb-3">
-                  Technologies Used
-                </h2>
+                <h2 className="font-semibold mb-3">Technologies Used</h2>
                 <div className="flex flex-wrap gap-2">
                   {project.technologies.map((tech, index) => (
                     <span
                       key={index}
-                      className="bg-gray-800 px-3 py-1 rounded-full text-sm"
+                      className="bg-gray-800 px-3 py-1 rounded-full"
                     >
                       {tech}
                     </span>
@@ -109,40 +109,47 @@ export default function ProjectDetail() {
 
             {project.snapshots && project.snapshots.length > 0 && (
               <div className="mb-8">
-                <h2 className="text-xl font-semibold mb-4">
-                  Project Snapshots
-                </h2>
-                <div className="grid grid-cols-1 gap-6">
-                  {" "}
-                  {project.snapshots.map((snapshot, index) => (
-                    <div key={index} className="relative h-[400px]">
-                      {" "}
-                      <Image
-                        src={snapshot}
-                        alt={`${project.title} snapshot ${index + 1}`}
-                        fill
-                        style={{ objectFit: "cover" }}
-                        className="rounded-lg"
-                      />
-                    </div>
-                  ))}
+                <h2 className="font-semibold mb-4">Project Snapshots</h2>
+                <div className="overflow-x-auto custom-scrollbar">
+                  <div className="flex gap-6 pb-4">
+                    {project.snapshots.map((snapshot, index) => (
+                      <div key={index} className="flex-shrink-0 w-[400px] h-[300px] relative">
+                        <Image
+                          src={snapshot}
+                          alt={`${project.title} snapshot ${index + 1}`}
+                          fill
+                          style={{ objectFit: "cover" }}
+                          className="rounded-lg"
+                        />
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
             )}
 
-            {project.githubLink && (
-              <div className="mb-8">
-                <h2 className="text-xl font-semibold mb-3">
-                  GitHub Repository
-                </h2>
-                <Link
-                  href={project.githubLink}
-                  className="inline-block bg-gray-800 text-white px-4 py-2 rounded hover:bg-gray-700 transition-colors"
-                >
-                  View on GitHub
-                </Link>
+            <div className="mb-8">
+              <h2 className="font-semibold mb-3">Project Links</h2>
+              <div className="flex gap-4">
+                {project.githubLink && (
+                  <Link
+                    href={project.githubLink}
+                    className="inline-block bg-gray-800 text-white px-4 py-2 rounded hover:bg-gray-700 transition-colors"
+                  >
+                    View on GitHub
+                  </Link>
+                )}
+                {project.demoLink && (
+                  <Link
+                    href={project.demoLink}
+                    className="inline-block bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition-colors"
+                  >
+                    Live Demo
+                  </Link>
+                )}
               </div>
-            )}
+            </div>
+
           </>
         ) : (
           <div className="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-700 p-4 mb-4">
