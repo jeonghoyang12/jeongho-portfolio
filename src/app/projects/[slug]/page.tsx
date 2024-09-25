@@ -63,7 +63,7 @@ export default function ProjectDetail() {
 
   return (
     <div className="bg-[#1d1d1d] text-white min-h-screen p-8">
-      <div className="max-w-[800px] mx-auto">
+      <div className="max-w-[600px] mx-auto">
         <h1 className="text-3xl font-bold mb-6">{project.title}</h1>
 
         {project.status === "completed" ? (
