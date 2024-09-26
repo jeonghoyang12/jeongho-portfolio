@@ -5,7 +5,7 @@ import Header from "@/components/header"
 // import Sidebar from "@/components/side-bar"
 
 export const metadata: Metadata = {
-  title: "JEONGHO YANG",
+  title: "jeongho yang",
   description: "Jeongho's Portfolio",
 }
 
