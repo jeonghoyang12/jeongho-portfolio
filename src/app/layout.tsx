@@ -7,6 +7,9 @@ import Header from "@/components/header"
 export const metadata: Metadata = {
   title: "jeongho yang",
   description: "Jeongho's Portfolio",
+  icons: {
+    icon: "/images/favicon.svg",
+  },
 }
 
 export default function RootLayout({
