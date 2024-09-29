@@ -2,7 +2,6 @@ import type { Metadata } from "next"
 import "./globals.css"
 import { GeistMono } from "geist/font/mono"
 import Header from "@/components/header"
-// import Sidebar from "@/components/side-bar"
 
 export const metadata: Metadata = {
   title: "jeongho yang",
