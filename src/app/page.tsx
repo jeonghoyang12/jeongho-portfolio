@@ -31,7 +31,7 @@ const projects: Project[] = [
   //   href: "/projects/harumada",
   // },
   {
-    name: "Blog",
+    name: "Notion Blog",
     year: 2024,
     description:
       "A blog powered by Notion API.",
