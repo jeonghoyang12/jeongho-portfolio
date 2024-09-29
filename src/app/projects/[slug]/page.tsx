@@ -28,7 +28,7 @@ const projects: Record<string, Project> = {
   blog: {
     title: "Blog",
     description:
-      "A blog powered by Notion API. Utilized Notion API and integrated with Next.js.",
+      "A dynamic blog platform built with Next.js and powered by the Notion API, showcasing seamless integration of content management and modern web technologies.",
     technologies: ["Next.js", "Notion API"],
     githubLink: "https://github.com/jeonghoyang12/my-blog",
     status: "completed",
@@ -64,52 +64,35 @@ export default function ProjectDetail() {
   }
 
   return (
-    <div className="bg-[#1d1d1d] text-white min-h-screen p-8 text-[14px]">
+    <div className="bg-[#1d1d1d] text-white min-h-screen p-8 text-[14px] leading-relaxed">
       <div className="max-w-[600px] mx-auto">
-        <h1 className="font-bold mb-6">{project.title}</h1>
+        <h1 className="font-bold mb-2">{project.title}</h1>
 
         {project.status === "completed" ? (
           <>
-            <div className="mb-8 space-y-4">
-              {project.role && (
-                <p>
-                  <span className="font-semibold">Role:</span> {project.role}
-                </p>
-              )}
-              {project.timeline && (
-                <p>
-                  <span className="font-semibold">Timeline:</span>{" "}
-                  {project.timeline}
-                </p>
-              )}
-            </div>
+            <p className="mb-6 text-gray-400">
+              {project.role && `${project.role} • `}
+              {project.timeline}
+            </p>
 
             {project.description && (
-              <div className="mb-8 leading-relaxed">
-                {" "}
+              <div className="mb-8">
                 <p>{project.description}</p>
               </div>
             )}
 
             {project.technologies && project.technologies.length > 0 && (
               <div className="mb-8">
-                <h2 className="font-semibold mb-3">Used Skills</h2>
-                <div className="flex flex-wrap gap-2">
-                  {project.technologies.map((tech, index) => (
-                    <span
-                      key={index}
-                      className="bg-gray-800 px-3 py-1 rounded-full"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
+                <p>
+                  This project was built using {project.technologies.join(", ")}.
+                  Each technology was chosen to address specific challenges and
+                  contribute to the overall success of the project.
+                </p>
               </div>
             )}
 
             {project.snapshots && project.snapshots.length > 0 && (
               <div className="mb-8">
-                <h2 className="font-semibold mb-4">Project Snapshots</h2>
                 <div className="overflow-x-auto custom-scrollbar">
                   <div className="flex gap-6 pb-4">
                     {project.snapshots.map((snapshot, index) => (
@@ -129,27 +112,27 @@ export default function ProjectDetail() {
             )}
 
             <div className="mb-8">
-              <h2 className="font-semibold mb-3">Project Links</h2>
-              <div className="flex gap-4">
+              <p>
+                Interested in exploring further? Check out the project on{" "}
                 {project.githubLink && (
                   <Link
                     href={project.githubLink}
-                    className="inline-block bg-gray-800 text-white px-4 py-2 rounded hover:bg-gray-700 transition-colors"
+                    className="text-blue-400 hover:underline"
                   >
-                    View on GitHub
+                    GitHub
                   </Link>
                 )}
+                {project.demoLink && project.githubLink && " or "}
                 {project.demoLink && (
                   <Link
                     href={project.demoLink}
-                    className="inline-block bg-gray-800 text-white px-4 py-2 rounded hover:bg-gray-700 transition-colors"
+                    className="text-blue-400 hover:underline"
                   >
-                    Live Demo
+                    see it in action
                   </Link>
-                )}
-              </div>
+                )}.
+              </p>
             </div>
-
           </>
         ) : (
           <div className="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-700 p-4 mb-4">
