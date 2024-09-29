@@ -3,7 +3,11 @@ import React, { useState } from "react"
 import Link from "next/link"
 import { useParams } from "next/navigation"
 import Image from "next/image"
-import { MagnifyingGlassPlus, CaretLeft, CaretRight } from "@phosphor-icons/react"
+import {
+  MagnifyingGlassPlus,
+  CaretLeft,
+  CaretRight,
+} from "@phosphor-icons/react"
 
 interface Project {
   title: string
@@ -45,12 +49,17 @@ export default function ProjectDetail() {
   const slug = params.slug as string
   const project = projects[slug]
 
-  const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(null)
+  const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(
+    null
+  )
 
   const handlePrevImage = (e: React.MouseEvent) => {
     e.stopPropagation()
     if (selectedImageIndex !== null && project.snapshots) {
-      setSelectedImageIndex((selectedImageIndex - 1 + project.snapshots.length) % project.snapshots.length)
+      setSelectedImageIndex(
+        (selectedImageIndex - 1 + project.snapshots.length) %
+          project.snapshots.length
+      )
     }
   }
 
@@ -101,21 +110,23 @@ export default function ProjectDetail() {
             {project.technologies && project.technologies.length > 0 && (
               <div className="mb-8">
                 <p>
-                  This project was built using {project.technologies.join(", ")}.
-                  Each technology was chosen to address specific challenges and
-                  contribute to the overall success of the project.
+                  This project was built using {project.technologies.join(", ")}
+                  . Each technology was chosen to address specific challenges
+                  and contribute to the overall success of the project.
                 </p>
               </div>
             )}
 
             {project.snapshots && project.snapshots.length > 0 && (
               <div className="mb-8">
-                <p className="text-gray-400 mb-4">Click on an image to view in full size</p>
+                <p className="text-gray-400 mb-2 text-[12px]">
+                  Click on an image to view in full size
+                </p>
                 <div className="overflow-x-auto custom-scrollbar">
                   <div className="flex gap-6 pb-4">
                     {project.snapshots.map((snapshot, index) => (
-                      <div 
-                        key={index} 
+                      <div
+                        key={index}
                         className="flex-shrink-0 w-[400px] h-[300px] relative cursor-pointer group"
                         onClick={() => setSelectedImageIndex(index)}
                       >
@@ -127,7 +138,11 @@ export default function ProjectDetail() {
                           className="rounded-lg"
                         />
                         <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                          <MagnifyingGlassPlus size={48} color="#ffffff" weight="thin" />
+                          <MagnifyingGlassPlus
+                            size={48}
+                            color="#ffffff"
+                            weight="thin"
+                          />
                         </div>
                       </div>
                     ))}
@@ -137,7 +152,7 @@ export default function ProjectDetail() {
             )}
 
             {selectedImageIndex !== null && project.snapshots && (
-              <div 
+              <div
                 className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50"
                 onClick={() => setSelectedImageIndex(null)}
               >
@@ -151,13 +166,13 @@ export default function ProjectDetail() {
                   />
                   {project.snapshots.length > 1 && (
                     <>
-                      <button 
+                      <button
                         className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 p-2 rounded-full"
                         onClick={handlePrevImage}
                       >
                         <CaretLeft size={24} color="#ffffff" weight="bold" />
                       </button>
-                      <button 
+                      <button
                         className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 p-2 rounded-full"
                         onClick={handleNextImage}
                       >
@@ -180,15 +195,19 @@ export default function ProjectDetail() {
                     GitHub
                   </Link>
                 )}
-                {project.demoLink && project.githubLink && " or "}
                 {project.demoLink && (
-                  <Link
-                    href={project.demoLink}
-                    className="text-blue-400 hover:underline"
-                  >
-                    see it in action
-                  </Link>
-                )}.
+                  <>
+                    <br />
+                    or{" "}
+                    <Link
+                      href={project.demoLink}
+                      className="text-blue-400 hover:underline"
+                    >
+                      see it in action
+                    </Link>
+                  </>
+                )}
+                .
               </p>
             </div>
           </>
