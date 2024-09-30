@@ -7,6 +7,7 @@ import {
   MagnifyingGlassPlus,
   CaretLeft,
   CaretRight,
+  ArrowLeft,
 } from "@phosphor-icons/react"
 
 interface Project {
@@ -223,9 +224,10 @@ export default function ProjectDetail() {
 
         <Link
           href="/"
-          className="inline-block mt-8 text-blue-400 hover:underline"
+          className="inline-flex items-center mt-8 text-blue-400 hover:underline"
         >
-          ← Back to Home
+          <ArrowLeft size={16} className="mr-1" />
+          <span>Back to Home</span>
         </Link>
       </div>
     </div>
