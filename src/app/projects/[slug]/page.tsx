@@ -20,6 +20,7 @@ interface Project {
   role?: string
   timeline?: string
   demoLink?: string
+  publishDemoGif?: string
 }
 
 const projects: Record<string, Project> = {
@@ -42,6 +43,7 @@ const projects: Record<string, Project> = {
     role: "Software Engineer / Side Project",
     timeline: "May 2024 - Jun 2024",
     demoLink: "https://my-blog-ten-olive.vercel.app/blog",
+    publishDemoGif: "/images/my-blog-demo.gif",
   },
 }
 
@@ -148,6 +150,23 @@ export default function ProjectDetail() {
                       </div>
                     ))}
                   </div>
+                </div>
+              </div>
+            )}
+
+            {project.publishDemoGif && (
+              <div className="mb-8">
+                <p className="text-gray-400 text-[12px] mb-2">
+                  Watch how easy it is to publish your content with a single click:
+                </p>
+                <div className="relative w-full h-0 pb-[56.25%]">
+                  <Image
+                    src={project.publishDemoGif}
+                    alt="Publish feature demo"
+                    fill
+                    style={{ objectFit: "cover" }}
+                    className="rounded-lg"
+                  />
                 </div>
               </div>
             )}
