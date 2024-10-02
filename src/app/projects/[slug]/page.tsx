@@ -3,6 +3,7 @@ import React, { useState } from "react"
 import Link from "next/link"
 import { useParams } from "next/navigation"
 import Image from "next/image"
+import { useRouter } from 'next/navigation'
 import {
   MagnifyingGlassPlus,
   CaretLeft,
@@ -48,6 +49,7 @@ const projects: Record<string, Project> = {
 }
 
 export default function ProjectDetail() {
+  const router = useRouter()
   const params = useParams()
   const slug = params.slug as string
   const project = projects[slug]
@@ -71,6 +73,12 @@ export default function ProjectDetail() {
     if (selectedImageIndex !== null && project.snapshots) {
       setSelectedImageIndex((selectedImageIndex + 1) % project.snapshots.length)
     }
+  }
+
+  const handleBackToHome = (e: React.MouseEvent) => {
+    e.preventDefault()
+    router.push('/')
+    window.scrollTo(0, 0)
   }
 
   if (!project) {
@@ -242,13 +250,14 @@ export default function ProjectDetail() {
           </div>
         )}
 
-        <Link
+        <a
           href="/"
-          className="inline-flex items-center mt-8 text-blue-400 hover:underline"
+          onClick={handleBackToHome}
+          className="inline-flex items-center mt-8 text-blue-400 hover:underline cursor-pointer"
         >
           <ArrowLeft size={16} className="mr-1" />
           <span>Back to Home</span>
-        </Link>
+        </a>
       </div>
     </div>
   )
