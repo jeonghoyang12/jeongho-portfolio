@@ -166,6 +166,7 @@ export default function ProjectDetail() {
                     fill
                     style={{ objectFit: "cover" }}
                     className="rounded-lg"
+                    unoptimized
                   />
                 </div>
               </div>
