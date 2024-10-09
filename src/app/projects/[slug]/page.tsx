@@ -25,10 +25,10 @@ interface Project {
 }
 
 const projects: Record<string, Project> = {
-  // goznuk: {
-  //   title: "Goznuk",
-  //   status: "in-progress",
-  // },
+  goznuk: {
+    title: "Goznuk",
+    status: "in-progress",
+  },
   // harumada: {
   //   title: "Harumada",
   //   status: "in-progress",

@@ -16,13 +16,13 @@ type Contact = {
 }
 
 const projects: Project[] = [
-  // {
-  //   name: "Goznuk",
-  //   year: 2024,
-  //   description:
-  //     "WIP",
-  //   href: "/projects/goznuk",
-  // },
+  {
+    name: "Goznuk",
+    year: 2024,
+    description:
+      "WIP",
+    href: "/projects/goznuk",
+  },
   // {
   //   name: "Harumada",
   //   year: 2024,
