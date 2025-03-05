@@ -17,7 +17,8 @@
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: GeistMono, monospace;
+  /* font-family: GeistMono, monospace; */
+  font-family: Inter, system-ui, sans-serif;
 }
 
 @layer utilities {
