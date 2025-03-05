@@ -46,7 +46,7 @@ export default function Home() {
 
           {/* my-blog */}
           <Link
-            href="https://github.com/your-username/project-1"
+            href="https://github.com/jeonghoyang12/my-blog"
             target="_blank"
             className="block p-4 rounded-lg border border-neutral-800 hover:border-neutral-700 transition-colors"
           >
