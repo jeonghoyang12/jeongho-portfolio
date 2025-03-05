@@ -1,7 +1,7 @@
 "use client"
 import React from "react"
 import Link from "next/link"
-import { ArrowUpRight, ArrowRight } from "@phosphor-icons/react"
+import { ArrowUpRight } from "@phosphor-icons/react"
 
 export default function Home() {
   return (
