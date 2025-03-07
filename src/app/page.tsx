@@ -1,13 +1,13 @@
 "use client"
 import React from "react"
-import Link from "next/link"
-import { ArrowUpRight } from "@phosphor-icons/react"
+// import Link from "next/link"
+// import { ArrowUpRight } from "@phosphor-icons/react"
 
 export default function Home() {
   return (
     <div>
       <div className="text-white font-medium mb-5">Jeongho Yang</div>
-      <div className="text-white mb-8 font-light">
+      {/* <div className="text-white mb-8 font-light">
         Security engineer pursuing B.S. in Computer Science / Cybersecurity @
         BGSU, with a passion for implementing efficient cloud security
         solutions, combining deep technical expertise with strong communication
@@ -15,11 +15,9 @@ export default function Home() {
         protection.
       </div>
       <div className="mt-12">
-        {/* Projects */}
         <div className="text-white font-medium mb-5">Projects</div>
         <div className="space-y-6">
 
-          {/* goznuk */}
           <Link
             href="https://github.com/your-username/project-1"
             target="_blank"
@@ -44,7 +42,6 @@ export default function Home() {
             </div>
           </Link>
 
-          {/* my-blog */}
           <Link
             href="https://github.com/jeonghoyang12/my-blog"
             target="_blank"
@@ -72,7 +69,7 @@ export default function Home() {
             </div>
           </Link>
         </div>
-      </div>
+      </div> */}
     </div>
   )
 }
