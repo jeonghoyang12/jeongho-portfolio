@@ -16,7 +16,7 @@ export default function Footer() {
               href="mailto:wjdwjdgh6998@gmail.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:underline flex items-center gap-1"
+              className="hover:text-black flex items-center gap-1"
             >
               <span>Email</span>
             </Link>
@@ -24,7 +24,7 @@ export default function Footer() {
               href="https://github.com/jeonghoyang12"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:underline flex items-center gap-1"
+              className="hover:text-black flex items-center gap-1"
             >
               <span>Github</span>
             </Link>
