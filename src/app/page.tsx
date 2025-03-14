@@ -92,12 +92,12 @@ export default function Home() {
       </div>
 
       {/* Writing (Blogs) */}
-      <div className="mt-12 mb-12 text-[14px]">
+      {/* <div className="mt-12 mb-12 text-[14px]">
         <div className="font-medium mb-2 text-[15px]">Writing</div>
         <div className="flex justify-between py-3 font-light">
           <span className="text-[#A3A3A3]">Coming soon...</span>
         </div>
-      </div>
+      </div> */}
     </div>
   )
 }
