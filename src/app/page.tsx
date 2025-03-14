@@ -7,14 +7,22 @@ const works = [
   { title: "Goznuk", timeline: "WIP", link: "" },
   {
     title: "Blog with Notion",
-    timeline: "Jun 2024 - Jul 2024",
+    timeline: "2024",
     link: "https://github.com/jeonghoyang12/my-blog",
   },
 ]
 
 const exprs = [
-  { company: "ShinwooTNS", title: "Cloud Security Engineering Intern", timeline: "Aug 2022 - Aug 2023" },
-  { company: "McKinley Rice", title: "Software Engineering Intern", timeline: "Dec 2019 - Jun 2020" },
+  {
+    company: "ShinwooTNS",
+    title: "Cloud Security Engineering Intern",
+    timeline: "Aug 2022 - Aug 2023",
+  },
+  {
+    company: "McKinley Rice",
+    title: "Software Engineering Intern",
+    timeline: "Dec 2019 - Jun 2020",
+  },
 ]
 
 export default function Home() {
@@ -52,7 +60,7 @@ export default function Home() {
             <div>
               <span>{expr.company}</span>
               <span> / {expr.title}</span>
-            </div>            
+            </div>
             <span>{expr.timeline}</span>
           </div>
         ))}
