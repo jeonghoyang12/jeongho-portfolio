@@ -1,75 +1,103 @@
 "use client"
 import React from "react"
-// import Link from "next/link"
+import Link from "next/link"
 // import { ArrowUpRight } from "@phosphor-icons/react"
+
+const works = [
+  { title: "Goznuk", timeline: "WIP", link: "" },
+  {
+    title: "Blog with Notion",
+    timeline: "Jun 2024 - Jul 2024",
+    link: "https://github.com/jeonghoyang12/my-blog",
+  },
+]
+
+const exprs = [
+  { company: "ShinwooTNS", title: "Cloud Security Engineering Intern", timeline: "Aug 2022 - Aug 2023" },
+  { company: "McKinley Rice", title: "Software Engineering Intern", timeline: "Dec 2019 - Jun 2020" },
+]
 
 export default function Home() {
   return (
     <div>
-      <div className="text-white font-medium mb-5">Jeongho Yang</div>
-      {/* <div className="text-white mb-8 font-light">
-        Security engineer pursuing B.S. in Computer Science / Cybersecurity @
-        BGSU, with a passion for implementing efficient cloud security
-        solutions, combining deep technical expertise with strong communication
-        skills to deliver comprehensive security solutions and infrastructure
-        protection.
+      <div className="font-semibold mb-1">Jeongho Yang</div>
+      <div className="text-[#616161] font-light text-[14px] mb-7">
+        Security Engineer with focus on threat intelligence and digital
+        infrastructure protection.
       </div>
-      <div className="mt-12">
-        <div className="text-white font-medium mb-5">Projects</div>
-        <div className="space-y-6">
+      <div className="mb-7 font-light text-[14px]" style={{ lineHeight: 1.7 }}>
+        I&apos;m currently pursuing BS in Computer Science with a specialization
+        of Cybersecurity / Digital Forensics at Bowling Green State University.
+        My background in both software development and security gives me a
+        unique perspective on how to build and protect digital systems.
+      </div>
+      <div className="font-light text-[14px]" style={{ lineHeight: 1.7 }}>
+        My experience includes implementing security solutions for large
+        companies with global operations and setting up cloud security on
+        platforms like AWS and Azure. I&apos;m committed to developing effective
+        ways to guard against data leaks and security threats.
+      </div>
+      <div className="border-t border-neutral-300 py-3 mt-9" />
 
-          <Link
-            href="https://github.com/your-username/project-1"
-            target="_blank"
-            className="block p-4 rounded-lg border border-neutral-800 hover:border-neutral-700 transition-colors"
+      {/* Experience */}
+      <div className="mt-6 text-[14px]">
+        <div className="font-medium mb-2 text-[15px]">Experience</div>
+        {exprs.map((expr, index) => (
+          <div
+            key={index}
+            className={`flex justify-between py-3 font-light ${
+              index < exprs.length - 1 ? "border-b border-neutral-200" : ""
+            }`}
           >
-            <div className="flex items-start justify-between">
-              <div>
-                <p className="text-white font-medium">goznuk</p>
-                <p className="text-neutral-400 mt-1 font-light text-[14px]">
-                  WIP
-                </p>
-                <div className="flex gap-2 mt-3">
-                  <span className="text-xs px-2 py-1 rounded-full bg-neutral-800 text-neutral-400">
-                    Next.js
-                  </span>
-                  <span className="text-xs px-2 py-1 rounded-full bg-neutral-800 text-neutral-400">
-                    TypeScript
-                  </span>
-                </div>
-              </div>
-              <ArrowUpRight className="text-neutral-400" size={20} />
-            </div>
-          </Link>
+            <div>
+              <span>{expr.company}</span>
+              <span> / {expr.title}</span>
+            </div>            
+            <span>{expr.timeline}</span>
+          </div>
+        ))}
+      </div>
 
-          <Link
-            href="https://github.com/jeonghoyang12/my-blog"
-            target="_blank"
-            className="block p-4 rounded-lg border border-neutral-800 hover:border-neutral-700 transition-colors"
-          >
-            <div className="flex items-start justify-between">
-              <div>
-                <p className="text-white font-medium">my-blog</p>
-                <p className="text-neutral-400 mt-1 font-light text-[14px]">
-                  Blog with Notion API
-                </p>
-                <div className="flex gap-2 mt-3">
-                  <span className="text-xs px-2 py-1 rounded-full bg-neutral-800 text-neutral-400">
-                    Next.js
-                  </span>
-                  <span className="text-xs px-2 py-1 rounded-full bg-neutral-800 text-neutral-400">
-                    TypeScript
-                  </span>
-                  <span className="text-xs px-2 py-1 rounded-full bg-neutral-800 text-neutral-400">
-                    Notion
-                  </span>
-                </div>
-              </div>
-              <ArrowUpRight className="text-neutral-400" size={20} />
+      {/* Work (Side Projects) */}
+      <div className="mt-12 text-[14px]">
+        <div className="font-medium mb-2 text-[15px]">Work</div>
+        {works.map((work, index) =>
+          work.timeline === "WIP" ? (
+            <div
+              key={index}
+              className={`flex justify-between py-3 font-light ${
+                index < works.length - 1 ? "border-b border-neutral-150" : ""
+              }`}
+            >
+              <span className="text-[#A3A3A3]">{work.title}</span>
+              <span className="text-[#A3A3A3]">WIP</span>
             </div>
-          </Link>
+          ) : (
+            <Link
+              key={index}
+              href={work.link}
+              className="hover:text-[#0070f3] transition-colors"
+            >
+              <div
+                className={`flex justify-between py-3 font-light ${
+                  index < works.length - 1 ? "border-b border-neutral-200" : ""
+                }`}
+              >
+                <span>{work.title}</span>
+                <span>{work.timeline}</span>
+              </div>
+            </Link>
+          )
+        )}
+      </div>
+
+      {/* Writing (Blogs) */}
+      <div className="mt-12 mb-12 text-[14px]">
+        <div className="font-medium mb-2 text-[15px]">Writing</div>
+        <div className="flex justify-between py-3 font-light">
+          <span className="text-[#A3A3A3]">Coming soon...</span>
         </div>
-      </div> */}
+      </div>
     </div>
   )
 }
